@@ -313,3 +313,11 @@ dist
 /.vs/PythonSettings.json
 /.vs/slnx.sqlite
 /.vs/akd-course-platform-v1/FileContentIndex/84e2f7a4-22b7-4098-b987-ece0bf187ba7.vsidx
+*.vsidx
+/.vs/akd-course-platform-v1/CopilotIndices/0.2.1671.27212/CodeChunks.db
+/.vs/akd-course-platform-v1/CopilotIndices/0.2.1671.27212/CodeChunks.db-shm
+/.vs/akd-course-platform-v1/CopilotIndices/0.2.1671.27212/CodeChunks.db-wal
+/.vs/akd-course-platform-v1/CopilotIndices/0.2.1671.27212/SemanticSymbols.db
+/.vs/akd-course-platform-v1/CopilotIndices/0.2.1671.27212/SemanticSymbols.db-shm
+/.vs/akd-course-platform-v1/CopilotIndices/0.2.1671.27212/SemanticSymbols.db-wal
+/.vs/ProjectSettings.json
