@@ -7,7 +7,7 @@
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
   {% tailwind_css %}
   
-  <title>{% block head_title %}Hello World from Course Platform
+  <title>{% block head_title %}Hello World from Course Platform KENEL
   {% endblock head_title %}</title>
 </head>
 <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
@@ -17,7 +17,7 @@
     <div class="{% if '/logout' in request.path or '/login' in request.path%} {% else %}px-4 mx-auto max-w-screen-xl{% endif %}">
     {% block content %}
     <h1 class="text-3xl font-bold underline">
-        Hello world from base!
+        Hello world from base KENEL!
       </h1>
     {% endblock content %}
   </div>
