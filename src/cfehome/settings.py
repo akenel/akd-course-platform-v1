@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 from decouple import config # os.environ.get()
 from decouple import config
-
+# or
+NPM_BIN_PATH = config("NPM_BIN_PATH", cast=str, default=None)
+print("NPM_BIN_PATH", NPM_BIN_PATH)
 BASE_URL = config("BASE_URL", default='http://127.0.0.1:8000')
 # default backend
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -22,6 +24,7 @@ EMAIL_PORT = config("EMAIL_PORT", cast=str, default='587') # Recommended
 EMAIL_HOST_USER = config("EMAIL_HOST_USER", cast=str, default=None)
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", cast=str, default=None)
 EMAIL_USE_TLS = config("EMAIL_USE_TLS", cast=bool, default=True)  # Use EMAIL_PORT 587 for TLS
+EMAIL_ADDRESS = config('EMAIL_ADDRESS')  # Add this lin
 
 ADMIN_USER_NAME=config("ADMIN_USER_NAME", default="Justin")
 ADMIN_USER_EMAIL=config("ADMIN_USER_EMAIL", default=None)
@@ -158,10 +161,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
-
 # whitenoise/nginx
-STATIC_URL = "static/"
-
+# Ensure STATIC_URL is also set
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 # nginx
 MEDIA_URL = "media/"
 MEDIA_ROOT = LOCAL_CDN / "media"
