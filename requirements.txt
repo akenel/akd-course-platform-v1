@@ -4,4 +4,7 @@ cloudinary
 python-decouple
 django-htmx
 django-tailwind[reload]
+django-markdownx
 markdown
+sib-api-v3-sdk
+requests

@@ -11,13 +11,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 from pathlib import Path
 from decouple import config # os.environ.get()
-from decouple import config
+
 # or
 NPM_BIN_PATH = config("NPM_BIN_PATH", cast=str, default=None)
 print("NPM_BIN_PATH", NPM_BIN_PATH)
 BASE_URL = config("BASE_URL", default='http://127.0.0.1:8000')
 # default backend
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = config("EMAIL_HOST", cast=str, default=None)
 EMAIL_PORT = config("EMAIL_PORT", cast=str, default='587') # Recommended
 EMAIL_ADDRESS = config("EMAIL_ADDRESS", cast=str, default=None) # Recommended
@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # third party
+    'markdownx',
     "django_htmx",
     "tailwind",
     "theme", # django-tailwind theme app
@@ -110,9 +111,11 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
+           
         },
     },
 ]
+
 
 WSGI_APPLICATION = "cfehome.wsgi.application"
 

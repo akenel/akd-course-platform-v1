@@ -4,6 +4,9 @@ from django.db import models
 from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 
+from markdownx.models import MarkdownxField
+
+
 helpers.cloudinary_init()
 
 class AccessRequirement(models.TextChoices):
@@ -62,7 +65,8 @@ def get_display_name(instance, *args, **kwargs):
 
 class Course(models.Model):
     title = models.CharField(max_length=120)
-    description = models.TextField(blank=True, null=True)
+    description = MarkdownxField(blank=True, null=True)
+    # description = models.TextField(blank=True, null=True)
     # uuid = models.UUIDField(default=uuid.uuid1, unique=True)
     public_id = models.CharField(max_length=130, blank=True, null=True, db_index=True)
     # image = models.ImageField(upload_to=handle_upload, blank=True, null=True)
@@ -153,7 +157,7 @@ class Lesson(models.Model):
     # course_id 
     public_id = models.CharField(max_length=130, blank=True, null=True, db_index=True)
     title = models.CharField(max_length=120)
-    description = models.TextField(blank=True, null=True)
+    description = MarkdownxField(blank=True, null=True)
     thumbnail = CloudinaryField("image", 
                 public_id_prefix=get_public_id_prefix,
                 display_name=get_display_name,

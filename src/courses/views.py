@@ -1,6 +1,7 @@
 import helpers
 from django.http import Http404, JsonResponse
 from django.shortcuts import render, redirect
+from markdownx.utils import markdown
 
 from . import services
 
@@ -21,9 +22,12 @@ def course_detail_view(request, course_id=None, *args, **kwarg):
     if course_obj is None:
         raise Http404
     lessons_queryset = services.get_course_lessons(course_obj)
+    course_obj.description = markdown(course_obj.description)  # Assuming 'description' is in Markdown
+
     context = {
         "object": course_obj,
         "lessons_queryset": lessons_queryset,
+        'description': course_obj.description,
     }
     # return JsonResponse({"data": course_obj.id, 'lesson_ids': [x.path for x in lessons_queryset] })
     return render(request, "courses/detail.html", context)
@@ -45,7 +49,8 @@ def lesson_detail_view(request, course_id=None, lesson_id=None, *args, **kwargs)
     # template_name = "courses/purchase-required.html"
     template_name = "courses/lesson-coming-soon.html"
     context = {
-        "object": lesson_obj
+        "object": lesson_obj,
+        'description': lesson_obj.description
     }
     if not lesson_obj.is_coming_soon and lesson_obj.has_video:
         """

@@ -1,6 +1,7 @@
 import helpers
 from cloudinary import CloudinaryImage
 from django.contrib import admin
+from markdownx.admin import MarkdownxModelAdmin
 from django.utils.html import format_html
 # Register your models here.
 from .models import Course, Lesson

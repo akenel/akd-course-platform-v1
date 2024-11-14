@@ -18,12 +18,16 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from markdownx import urls as markdownx_urls
+
+
 
 from emails.views import verify_email_token_view, email_token_login_view, logout_btn_hx_view
 from . import views
 
 
 urlpatterns = [
+    path('markdownx/', include('markdownx.urls')),
     path("", views.home_view),
     path("login/", views.login_logout_template_view),
     path("logout/", views.login_logout_template_view),
